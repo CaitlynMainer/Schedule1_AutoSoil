@@ -47,7 +47,7 @@ namespace AutoWater
 
         private IEnumerator ProcessAllSoilPourers()
         {
-            LoggerInstance.Msg("[AutoSoil] Scanning for SoilPourers...");
+            //LoggerInstance.Msg("[AutoSoil] Scanning for SoilPourers...");
 
             var allObjects = UnityEngine.Object.FindObjectsOfType<MonoBehaviour>();
             int pourerCount = 0;
@@ -89,7 +89,7 @@ namespace AutoWater
                 }
             }
 
-            LoggerInstance.Msg($"[AutoSoil] Done. Found {pourerCount} SoilPourers, activated {activatedCount}.");
+            //LoggerInstance.Msg($"[AutoSoil] Done. Found {pourerCount} SoilPourers, activated {activatedCount}.");
             yield return null;
         }
 
