@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-[assembly: MelonInfo(typeof(AutoWater.AutoWaterMod), "AutoSoil", "0.3.0", "Michiyo")]
+[assembly: MelonInfo(typeof(AutoWater.AutoWaterMod), "AutoSoil", "0.1.0", "Michiyo")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 namespace AutoWater
@@ -40,15 +40,12 @@ namespace AutoWater
             if (elapsed >= _checkInterval.Value)
             {
                 _lastCheckTime = now;
-                LoggerInstance.Msg("[AutoSoil] ProcessAllSoilPourers..");
                 MelonCoroutines.Start(ProcessAllSoilPourers());
             }
         }
 
         private IEnumerator ProcessAllSoilPourers()
         {
-            //LoggerInstance.Msg("[AutoSoil] Scanning for SoilPourers...");
-
             var allObjects = UnityEngine.Object.FindObjectsOfType<MonoBehaviour>();
             int pourerCount = 0;
             int activatedCount = 0;
@@ -88,8 +85,6 @@ namespace AutoWater
                     }
                 }
             }
-
-            //LoggerInstance.Msg($"[AutoSoil] Done. Found {pourerCount} SoilPourers, activated {activatedCount}.");
             yield return null;
         }
 
